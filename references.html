@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>References — Philippine Criminal Justice System</title>
+    <meta name="description"
+        content="Primary legal references, statutes, and academic sources consulted in this educational resource on the Philippine Criminal Justice System." />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>tailwind.config = { theme: { extend: { colors: { 'navy-deep': '#0F1B33', 'navy-panel': '#1a2744', 'parchment': '#F7F6F2', 'gold': '#C9A227', 'slate': '#8b9cbf' }, fontFamily: { sans: ['Poppins', 'sans-serif'] } } } }</script>
+</head>
+
+<body>
+    <div id="nav-placeholder"></div>
+    <main class="page-top">
+        <section
+            style="background:linear-gradient(135deg,var(--navy-deep) 0%,#111e38 100%);padding:4rem 0 3rem;border-bottom:1px solid rgba(255,255,255,0.07);">
+            <div class="max-w-content">
+                <a href="index.html"
+                    style="color:var(--slate);font-size:0.8125rem;text-decoration:none;display:inline-flex;align-items:center;gap:0.375rem;margin-bottom:1.25rem;"
+                    onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--slate)'"><i
+                        class="fa-solid fa-arrow-left"></i> Home</a>
+                <span class="section-tag"><i class="fa-solid fa-book-bookmark mr-1"></i> References</span>
+                <h1 class="section-title">References & Sources</h1>
+                <p class="section-lead">Primary legal texts, government publications, Supreme Court issuances, and
+                    academic works consulted in developing this educational resource.</p>
+            </div>
+        </section>
+
+        <section class="section-pad section-panel">
+            <div class="max-w-content">
+                <div class="reveal" style="margin-bottom:2rem;"><span class="section-tag">Primary Sources</span>
+                    <h2 class="section-title">Legal Primary Sources</h2>
+                </div>
+                <div style="overflow-x:auto;" class="reveal">
+                    <table class="rights-table">
+                        <thead>
+                            <tr>
+                                <th>Reference</th>
+                                <th>Citation</th>
+                                <th>Journal/Publisher</th>
+                                <th>Type</th>
+                            </tr>
+                        </thead>
+                        <tbody id="refs-primary"></tbody>
+                    </table>
+                </div>
+                <div class="reveal" style="margin: 3rem 0 2rem;"><span class="section-tag">Academic Sources</span>
+                    <h2 class="section-title">Academic & Institutional Sources</h2>
+                </div>
+                <div style="overflow-x:auto;" class="reveal">
+                    <table class="rights-table">
+                        <thead>
+                            <tr>
+                                <th>Title</th>
+                                <th>Author / Organization</th>
+                                <th>Year</th>
+                                <th>Type</th>
+                            </tr>
+                        </thead>
+                        <tbody id="refs-academic"></tbody>
+                    </table>
+                </div>
+                <div class="highlight-box reveal" style="margin-top:2rem;">
+                    <p style="font-size:0.8125rem;"><i class="fa-solid fa-info-circle"
+                            style="color:var(--gold);margin-right:0.5rem;"></i>
+                        This website is an educational resource. All laws cited are public domain legislative
+                        enactments. Supreme Court rules and decisions are publicly available via the Official Gazette
+                        and SC website. Academic works are cited for educational reference purposes.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+    <div id="footer-placeholder"></div>
+    <script src="js/nav.js"></script>
+    <script src="js/footer.js"></script>
+    <script src="js/animations.js"></script>
+    <script>
+        const primary = [
+            { ref: '1987 Philippine Constitution', citation: 'Const. of the Philippines (1987)', pub: 'Republic of the Philippines', type: 'Constitution' },
+            { ref: 'Revised Penal Code', citation: 'Act 3815 (1930)', pub: 'Philippine Legislature', type: 'Statute' },
+            { ref: 'Republic Act 6975 (PNP Law)', citation: 'RA 6975 (1990)', pub: 'Congress of the Philippines', type: 'Statute' },
+            { ref: 'Republic Act 9165 (Dangerous Drugs Act)', citation: 'RA 9165 (2002)', pub: 'Congress of the Philippines', type: 'Statute' },
+            { ref: 'Republic Act 9344 (Juvenile Justice)', citation: 'RA 9344 (2006)', pub: 'Congress of the Philippines', type: 'Statute' },
+            { ref: 'Republic Act 10175 (Cybercrime)', citation: 'RA 10175 (2012)', pub: 'Congress of the Philippines', type: 'Statute' },
+            { ref: 'Republic Act 10389 (Recognizance Act)', citation: 'RA 10389 (2013)', pub: 'Congress of the Philippines', type: 'Statute' },
+            { ref: 'Republic Act 10592 (GCTA Law)', citation: 'RA 10592 (2013)', pub: 'Congress of the Philippines', type: 'Statute' },
+            { ref: 'Republic Act 10575 (Bureau of Corrections Act)', citation: 'RA 10575 (2013)', pub: 'Congress of the Philippines', type: 'Statute' },
+            { ref: 'Republic Act 11036 (Mental Health Act)', citation: 'RA 11036 (2018)', pub: 'Congress of the Philippines', type: 'Statute' },
+            { ref: 'Republic Act 11362 (Community Service Act)', citation: 'RA 11362 (2019)', pub: 'Congress of the Philippines', type: 'Statute' },
+            { ref: 'Republic Act 11479 (Anti-Terrorism Act)', citation: 'RA 11479 (2020)', pub: 'Congress of the Philippines', type: 'Statute' },
+            { ref: 'Rules of Court', citation: 'AM 19-08-15-SC (2019)', pub: 'Supreme Court', type: 'Procedural Rule' },
+            { ref: 'Revised Rules on Evidence', citation: 'AM 19-08-15-SC', pub: 'Supreme Court', type: 'Procedural Rule' },
+            { ref: 'Continuous Trial Guidelines', citation: 'AM 15-06-10-SC', pub: 'Supreme Court', type: 'Admin Matter' },
+            { ref: 'Indeterminate Sentence Law', citation: 'Act 4103 (1933)', pub: 'Philippine Legislature', type: 'Statute' },
+            { ref: 'Probation Law (as amended)', citation: 'PD 968 (1976), RA 10707', pub: 'Congress of the Philippines', type: 'Statute' },
+            { ref: 'Anti-Violence Against Women and Children Act', citation: 'RA 9262 (2004)', pub: 'Congress of the Philippines', type: 'Statute' },
+            { ref: 'Anti-Trafficking in Persons Act', citation: 'RA 9208 (2003), RA 10364 (2012)', pub: 'Congress of the Philippines', type: 'Statute' },
+            { ref: 'Anti-Plunder Law', citation: 'RA 7080 (1991)', pub: 'Congress of the Philippines', type: 'Statute' },
+        ];
+
+        const academic = [
+            { title: 'Philippine Criminal Justice System (4th ed.)', author: 'Mallari, Dante P.', year: '2018', type: 'Textbook' },
+            { title: 'Introduction to Criminology', author: 'Cuadra, Marilyn B.', year: '2019', type: 'Textbook' },
+            { title: 'Annual Report on Corrections (BuCor)', author: 'Bureau of Corrections', year: 'Various', type: 'Gov\'t Report' },
+            { title: 'Human Rights in the Administration of Justice', author: 'Commission on Human Rights — Philippines', year: '2021', type: 'Institutional Report' },
+            { title: 'PNP Annual Report', author: 'Philippine National Police', year: 'Various', type: 'Gov\'t Report' },
+            { title: 'Addressing the Backlog of Cases in the Philippine Judiciary', author: 'Supreme Court Management Information Systems Office', year: '2020', type: 'Study' },
+            { title: 'UNODC — Criminal Justice Assessment Toolkit', author: 'United Nations Office on Drugs & Crime', year: '2006', type: 'Int\'l Reference' },
+            { title: 'Restorative Justice in Asia Pacific', author: 'Asian Development Bank', year: '2019', type: 'Policy Paper' },
+            { title: 'Philippine Legal Encyclopedia', author: 'Justice Hildegardo F. Iñiguez', year: '2015', type: 'Reference' },
+        ];
+
+        function buildTable(data, cols, tbody) {
+            data.forEach(row => {
+                const tr = document.createElement('tr');
+                tr.innerHTML = cols.map(c => `<td style="font-size:0.8125rem;color:var(--slate);">${row[c]}</td>`).join('');
+                tbody.appendChild(tr);
+            });
+        }
+
+        buildTable(primary, ['ref', 'citation', 'pub', 'type'], document.getElementById('refs-primary'));
+        buildTable(academic, ['title', 'author', 'year', 'type'], document.getElementById('refs-academic'));
+        if (window.initReveal) initReveal();
+    </script>
+</body>
+
+</html>

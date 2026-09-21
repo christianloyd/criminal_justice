@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Challenges & Issues — Philippine Criminal Justice System</title>
+    <meta name="description"
+        content="Examine the systemic challenges facing the Philippine Criminal Justice System, including overcrowding, recidivism, case backlogs, and human rights concerns." />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>tailwind.config = { theme: { extend: { colors: { 'navy-deep': '#0F1B33', 'navy-panel': '#1a2744', 'parchment': '#F7F6F2', 'gold': '#C9A227', 'slate': '#8b9cbf' }, fontFamily: { sans: ['Poppins', 'sans-serif'] } } } }</script>
+</head>
+
+<body>
+    <div id="nav-placeholder"></div>
+    <main class="page-top">
+        <section
+            style="background:linear-gradient(135deg,#1a0c10 0%,#0F1B33 100%);padding:4rem 0 3rem;border-bottom:1px solid rgba(139,30,35,0.2);">
+            <div class="max-w-content">
+                <a href="index.html"
+                    style="color:var(--slate);font-size:0.8125rem;text-decoration:none;display:inline-flex;align-items:center;gap:0.375rem;margin-bottom:1.25rem;"
+                    onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--slate)'"><i
+                        class="fa-solid fa-arrow-left"></i> Home</a>
+                <span class="section-tag"
+                    style="background:rgba(139,30,35,0.12);border-color:rgba(139,30,35,0.3);color:#e05560;"><i
+                        class="fa-solid fa-triangle-exclamation mr-1"></i> Challenges & Issues</span>
+                <h1 class="section-title">Systemic Challenges</h1>
+                <p class="section-lead">Critical analysis of the issues that undermine justice, fairness, and the rule
+                    of law in the Philippine criminal justice system — with evidence-based reform proposals.</p>
+                <div class="highlight-box" style="margin-top:1.5rem;max-width:48rem;border-left-color:var(--deep-red);">
+                    <strong style="color:#e05560;">Academic Disclaimer:</strong> The information on this page is
+                    presented for educational and analytical purposes. Statistics are illustrative/ranges derived from
+                    academic and institutional sources. Readers are encouraged to consult primary sources for current
+                    data.
+                </div>
+            </div>
+        </section>
+
+        <section class="section-pad section-panel">
+            <div class="max-w-content">
+                <div id="challenges-grid" class="cards-grid"></div>
+            </div>
+        </section>
+
+        <!-- Reform Overview -->
+        <section class="section-pad section-navy">
+            <div class="max-w-content">
+                <div class="reveal" style="margin-bottom:2rem;text-align:center;">
+                    <span class="section-tag"><i class="fa-solid fa-lightbulb mr-1"></i> Reform Efforts</span>
+                    <h2 class="section-title" style="text-align:center;">Key Reform Initiatives</h2>
+                </div>
+                <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.25rem;"
+                    class="reveal">
+                    <div
+                        style="background:var(--navy-panel);border:1px solid rgba(255,255,255,0.07);border-radius:1rem;padding:1.25rem;">
+                        <i class="fa-solid fa-gavel"
+                            style="color:var(--gold);font-size:1.5rem;margin-bottom:0.75rem;display:block;"></i>
+                        <h3 style="color:var(--parchment);font-weight:600;margin-bottom:0.375rem;">Continuous Trial Rule
+                        </h3>
+                        <p style="font-size:0.8125rem;line-height:1.5;">SC AM 15-06-10-SC: strict time limits on
+                            hearings and decisions, reducing indefinite postponements.</p>
+                    </div>
+                    <div
+                        style="background:var(--navy-panel);border:1px solid rgba(255,255,255,0.07);border-radius:1rem;padding:1.25rem;">
+                        <i class="fa-solid fa-person-walking-arrow-right"
+                            style="color:var(--gold);font-size:1.5rem;margin-bottom:0.75rem;display:block;"></i>
+                        <h3 style="color:var(--parchment);font-weight:600;margin-bottom:0.375rem;">Recognizance Act</h3>
+                        <p style="font-size:0.8125rem;line-height:1.5;">RA 10389: allows indigent accused to be released
+                            without monetary bail — decongesting jails.</p>
+                    </div>
+                    <div
+                        style="background:var(--navy-panel);border:1px solid rgba(255,255,255,0.07);border-radius:1rem;padding:1.25rem;">
+                        <i class="fa-solid fa-dna"
+                            style="color:var(--gold);font-size:1.5rem;margin-bottom:0.75rem;display:block;"></i>
+                        <h3 style="color:var(--parchment);font-weight:600;margin-bottom:0.375rem;">DNA Act</h3>
+                        <p style="font-size:0.8125rem;line-height:1.5;">RA 10867: expanded use of DNA evidence and
+                            post-conviction DNA testing via NBI.</p>
+                    </div>
+                    <div
+                        style="background:var(--navy-panel);border:1px solid rgba(255,255,255,0.07);border-radius:1rem;padding:1.25rem;">
+                        <i class="fa-solid fa-screwdriver-wrench"
+                            style="color:var(--gold);font-size:1.5rem;margin-bottom:0.75rem;display:block;"></i>
+                        <h3 style="color:var(--parchment);font-weight:600;margin-bottom:0.375rem;">Good Conduct Law</h3>
+                        <p style="font-size:0.8125rem;line-height:1.5;">RA 10592: Good Conduct Time Allowance
+                            incentivizes program participation and reduces sentences.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <div id="footer-placeholder"></div>
+    <script src="js/nav.js"></script>
+    <script src="js/footer.js"></script>
+    <script src="js/modal.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="data/challenges.js"></script>
+    <script>
+        const cg = document.getElementById('challenges-grid');
+        challengesData.forEach(item => {
+            const card = document.createElement('div');
+            card.className = 'card card-challenge reveal'; card.setAttribute('tabindex', '0'); card.setAttribute('role', 'button');
+            card.innerHTML = `<div style="display:flex;gap:1rem;align-items:flex-start;"><div class="icon-chip icon-chip-red"><i class="fa-solid ${item.icon}"></i></div><div><p class="badge badge-red" style="margin-bottom:0.375rem;">${item.tag}</p><h3 style="color:var(--parchment);font-weight:600;font-size:1rem;margin-bottom:0.375rem;">${item.title}</h3><p style="font-size:0.85rem;line-height:1.5;">${item.teaser}</p></div></div>`;
+            card.addEventListener('click', () => Modal.open({ icon: item.icon, title: item.title, tag: item.tag, body: item.body }));
+            card.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); card.click(); } });
+            cg.appendChild(card);
+        });
+        if (window.initReveal) initReveal();
+    </script>
+</body>
+
+</html>

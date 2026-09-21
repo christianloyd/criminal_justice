@@ -1,0 +1,36 @@
+<footer class="bg-navy-deep border-t border-white/10 pt-10 pb-6 mt-16">
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+      <!-- Brand -->
+      <div>
+        <div class="flex items-center gap-2 mb-3">
+          <span class="text-gold text-2xl"><i class="fa-solid fa-scale-balanced"></i></span>
+          <span class="text-parchment font-bold text-lg">PCJS</span>
+        </div>
+        <p class="text-slate text-sm leading-relaxed">Philippine Criminal Justice System — An interactive educational resource for students, instructors, and the general public.</p>
+      </div>
+      <!-- Quick Links -->
+      <div>
+        <h4 class="text-gold font-semibold text-sm uppercase tracking-widest mb-3">Quick Links</h4>
+        <ul class="space-y-1 list-none p-0 m-0">
+          <li><a href="index.html" class="text-slate text-sm hover:text-gold transition-colors">Home</a></li>
+          <li><a href="history.html" class="text-slate text-sm hover:text-gold transition-colors">Historical Development</a></li>
+          <li><a href="laws.html" class="text-slate text-sm hover:text-gold transition-colors">Key Criminal Laws</a></li>
+          <li><a href="courts.html" class="text-slate text-sm hover:text-gold transition-colors">Judicial System</a></li>
+          <li><a href="challenges.html" class="text-slate text-sm hover:text-gold transition-colors">Challenges &amp; Issues</a></li>
+          <li><a href="references.html" class="text-slate text-sm hover:text-gold transition-colors">References</a></li>
+        </ul>
+      </div>
+      <!-- Disclaimer -->
+      <div>
+        <h4 class="text-gold font-semibold text-sm uppercase tracking-widest mb-3">Disclaimer</h4>
+        <p class="text-slate text-xs leading-relaxed">This site is for <strong class="text-parchment">educational purposes only</strong>. Content is based on publicly available information and should not be construed as legal advice. Laws and procedures may change; always consult official sources and qualified legal counsel for specific legal matters.</p>
+      </div>
+    </div>
+    <div class="border-t border-white/10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3">
+      <p class="text-slate text-xs">&copy; <span id="footer-year"></span> PCJS Educational Website. For academic use.</p>
+      <p class="text-slate text-xs">Built with <i class="fa-solid fa-heart text-red-500 text-xs"></i> for Philippine Legal Education</p>
+    </div>
+  </div>
+</footer>
+<script>document.getElementById('footer-year').textContent = new Date().getFullYear();</script>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Constitutional Framework — Philippine Criminal Justice System</title>
+    <meta name="description"
+        content="Explore the constitutional provisions and Bill of Rights that form the legal bedrock of the Philippine Criminal Justice System." />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>tailwind.config = { theme: { extend: { colors: { 'navy-deep': '#0F1B33', 'navy-panel': '#1a2744', 'parchment': '#F7F6F2', 'gold': '#C9A227', 'slate': '#8b9cbf' }, fontFamily: { sans: ['Poppins', 'sans-serif'] } } } }</script>
+</head>
+
+<body>
+    <div id="nav-placeholder"></div>
+    <main class="page-top">
+        <section
+            style="background: linear-gradient(135deg, var(--navy-deep) 0%, #111e38 100%); padding: 4rem 0 3rem; border-bottom: 1px solid rgba(255,255,255,0.07);">
+            <div class="max-w-content">
+                <a href="index.html"
+                    style="color:var(--slate);font-size:0.8125rem;text-decoration:none;display:inline-flex;align-items:center;gap:0.375rem;margin-bottom:1.25rem;transition:color 0.2s;"
+                    onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--slate)'"><i
+                        class="fa-solid fa-arrow-left"></i> Home</a>
+                <span class="section-tag"><i class="fa-solid fa-book-open mr-1"></i> Constitutional Framework</span>
+                <h1 class="section-title">Constitutional Foundations</h1>
+                <p class="section-lead">The 1987 Philippine Constitution is the supreme law. Every criminal law,
+                    procedure, and prosecution must conform to its provisions.</p>
+            </div>
+        </section>
+
+        <!-- Constitutional Provisions -->
+        <section class="section-pad section-panel">
+            <div class="max-w-content">
+                <div class="reveal" style="margin-bottom:2.5rem;">
+                    <span class="section-tag"><i class="fa-solid fa-landmark mr-1"></i> Key Provisions</span>
+                    <h2 class="section-title">Constitutional Articles</h2>
+                </div>
+                <div class="cards-grid" id="provisions-grid"></div>
+            </div>
+        </section>
+
+        <!-- Bill of Rights table -->
+        <section class="section-pad section-navy">
+            <div class="max-w-content">
+                <div class="reveal" style="margin-bottom:2.5rem;">
+                    <span class="section-tag"><i class="fa-solid fa-shield-halved mr-1"></i> Article III</span>
+                    <h2 class="section-title">Bill of Rights</h2>
+                    <p class="section-lead">Click any row to see the full meaning, application, and consequences of
+                        violation for each right.</p>
+                </div>
+                <div style="overflow-x:auto;" class="reveal">
+                    <table class="rights-table">
+                        <thead>
+                            <tr>
+                                <th>Right</th>
+                                <th>Citation</th>
+                                <th>Plain Language Summary</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody id="rights-tbody"></tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </main>
+    <div id="footer-placeholder"></div>
+    <script src="js/nav.js"></script>
+    <script src="js/footer.js"></script>
+    <script src="js/modal.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="data/constitution.js"></script>
+    <script>
+        const pg = document.getElementById('provisions-grid');
+        constitutionData.provisions.forEach(item => {
+            const card = document.createElement('div');
+            card.className = 'card reveal'; card.setAttribute('tabindex', '0'); card.setAttribute('role', 'button');
+            card.innerHTML = `<div style="display:flex;gap:1rem;align-items:flex-start;"><div class="icon-chip"><i class="fa-solid ${item.icon}"></i></div><div><p class="badge badge-gold" style="margin-bottom:0.375rem;">${item.tag}</p><h3 style="color:var(--parchment);font-weight:600;font-size:1rem;margin-bottom:0.375rem;">${item.title}</h3><p style="font-size:0.85rem;line-height:1.5;">${item.teaser}</p></div></div>`;
+            card.addEventListener('click', () => Modal.open({ icon: item.icon, title: item.title, tag: item.tag, body: item.body }));
+            card.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); card.click(); } });
+            pg.appendChild(card);
+        });
+
+        const tbody = document.getElementById('rights-tbody');
+        constitutionData.rights.forEach(r => {
+            const tr = document.createElement('tr');
+            tr.className = 'rights-row'; tr.setAttribute('tabindex', '0'); tr.setAttribute('role', 'button');
+            tr.innerHTML = `
+        <td><strong style="color:var(--parchment);font-size:0.875rem;">${r.right}</strong></td>
+        <td><span class="badge badge-gold">${r.citation}</span></td>
+        <td style="color:var(--slate);font-size:0.8125rem;">${r.teaser}</td>
+        <td><i class="fa-solid fa-chevron-right" style="color:var(--gold);"></i></td>`;
+            tr.addEventListener('click', () => Modal.open({ icon: r.icon || 'fa-shield-halved', title: r.right, tag: r.tag, body: r.body }));
+            tr.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); tr.click(); } });
+            tbody.appendChild(tr);
+        });
+        if (window.initReveal) initReveal();
+    </script>
+</body>
+
+</html>

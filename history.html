@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Historical Development — Philippine Criminal Justice System</title>
+    <meta name="description"
+        content="Explore the historical development of the Philippine Criminal Justice System from Pre-Colonial times to the modern democratic era." />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>tailwind.config = { theme: { extend: { colors: { 'navy-deep': '#0F1B33', 'navy-panel': '#1a2744', 'parchment': '#F7F6F2', 'gold': '#C9A227', 'slate': '#8b9cbf' }, fontFamily: { sans: ['Poppins', 'sans-serif'] } } } }</script>
+</head>
+
+<body>
+    <div id="nav-placeholder"></div>
+    <main class="page-top">
+        <!-- Page Hero -->
+        <section
+            style="background: linear-gradient(135deg, var(--navy-deep) 0%, #111e38 100%); padding: 4rem 0 3rem; border-bottom: 1px solid rgba(255,255,255,0.07);">
+            <div class="max-w-content">
+                <a href="index.html"
+                    style="color: var(--slate); font-size: 0.8125rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.375rem; margin-bottom: 1.25rem; transition: color 0.2s;"
+                    onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--slate)'"><i
+                        class="fa-solid fa-arrow-left"></i> Home</a>
+                <span class="section-tag"><i class="fa-solid fa-clock-rotate-left mr-1"></i> Historical
+                    Development</span>
+                <h1 class="section-title">History of the PCJS</h1>
+                <p class="section-lead">From barangay-based customary law to the modern constitutional justice system —
+                    trace six centuries of legal evolution in the Philippines.</p>
+            </div>
+        </section>
+
+        <!-- History Timeline Cards -->
+        <section class="section-pad section-panel">
+            <div class="max-w-content">
+                <p class="section-lead reveal" style="margin-bottom: 2.5rem;">Click any era card to explore the
+                    political context, key legal instruments, and pivotal events of that period.</p>
+                <div id="history-grid" class="cards-grid-2"></div>
+            </div>
+        </section>
+
+        <!-- Timeline visual strip -->
+        <section class="section-pad section-navy">
+            <div class="max-w-content">
+                <div class="reveal" style="text-align:center; margin-bottom: 2rem;">
+                    <span class="section-tag"><i class="fa-solid fa-timeline mr-1"></i> At a Glance</span>
+                    <h2 class="section-title" style="text-align:center;">Timeline of Legal Milestones</h2>
+                </div>
+                <div style="display: flex; flex-direction: column; gap: 0; position: relative; padding-left: 2rem; border-left: 2px solid rgba(201,162,39,0.2);"
+                    id="timeline-list"></div>
+            </div>
+        </section>
+    </main>
+    <div id="footer-placeholder"></div>
+    <script src="js/nav.js"></script>
+    <script src="js/footer.js"></script>
+    <script src="js/modal.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="data/history.js"></script>
+    <script>
+        const grid = document.getElementById('history-grid');
+        historyData.forEach((item, i) => {
+            const card = document.createElement('div');
+            card.className = 'card reveal';
+            card.setAttribute('tabindex', '0'); card.setAttribute('role', 'button');
+            card.innerHTML = `
+        <div style="display:flex; gap:1rem; align-items:flex-start;">
+          <div class="icon-chip"><i class="fa-solid ${item.icon}"></i></div>
+          <div style="flex:1;">
+            <div style="display:flex; align-items:center; gap:0.5rem; margin-bottom:0.375rem; flex-wrap:wrap;">
+              <p class="badge badge-gold">${item.tag}</p>
+              <span style="font-size:0.75rem; font-weight:600; color:var(--gold); opacity:0.7;">${item.period}</span>
+            </div>
+            <h3 style="color:var(--parchment); font-weight:600; font-size:1.05rem; margin-bottom:0.375rem;">${item.era}</h3>
+            <p style="font-size:0.85rem; line-height:1.6;">${item.teaser}</p>
+          </div>
+        </div>`;
+            card.addEventListener('click', () => Modal.open({ icon: item.icon, title: item.era + ' Era (' + item.period + ')', tag: item.tag, body: item.body }));
+            card.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); card.click(); } });
+            grid.appendChild(card);
+        });
+
+        const milestones = [
+            { year: '1565', event: 'Spanish colonization begins; Código Penal tradition introduced' },
+            { year: '1870s', event: 'Spanish Código Penal adapted for the Philippines' },
+            { year: '1901', event: 'Philippine Constabulary established by Americans' },
+            { year: '1930', event: 'Revised Penal Code (Act 3815) enacted' },
+            { year: '1935', event: '1935 Commonwealth Constitution ratified' },
+            { year: '1947', event: 'NBI formally established (RA 157)' },
+            { year: '1972', event: 'Martial Law declared; 1973 Constitution enacted' },
+            { year: '1987', event: '1987 Constitution ratified post-EDSA Revolution' },
+            { year: '1990', event: 'PNP created (RA 6975); separated from military' },
+            { year: '1991', event: 'BJMP established to manage city/municipal jails' },
+            { year: '2006', event: 'Juvenile Justice & Welfare Act (RA 9344) enacted' },
+            { year: '2020', event: 'Anti-Terrorism Act (RA 11479) enacted' },
+        ];
+
+        const tl = document.getElementById('timeline-list');
+        milestones.forEach((m, i) => {
+            const el = document.createElement('div');
+            el.className = 'reveal';
+            el.style.cssText = 'display:flex; gap:1rem; align-items:flex-start; padding:0.75rem 0; position:relative;';
+            el.innerHTML = `
+        <div style="position:absolute; left:-2.5rem; top:1rem; width:0.875rem; height:0.875rem; border-radius:50%; background:var(--navy-panel); border:2px solid rgba(201,162,39,0.4);"></div>
+        <span style="font-size:0.75rem; font-weight:700; color:var(--gold); min-width:2.5rem; padding-top:0.125rem;">${m.year}</span>
+        <p style="font-size:0.875rem; color:var(--slate); line-height:1.5;">${m.event}</p>`;
+            tl.appendChild(el);
+        });
+        if (window.initReveal) initReveal();
+    </script>
+</body>
+
+</html>

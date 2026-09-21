@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Philippine Criminal Justice System — Overview</title>
+    <meta name="description"
+        content="An interactive educational resource covering the history, structure, laws, courts, and challenges of the Philippine Criminal Justice System." />
+    <link rel="stylesheet" href="styles.css" />
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <!-- Tailwind CDN for utility classes in partials -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'navy-deep': '#0F1B33',
+                        'navy-panel': '#1a2744',
+                        'parchment': '#F7F6F2',
+                        'gold': '#C9A227',
+                        'slate': '#8b9cbf',
+                    },
+                    fontFamily: { sans: ['Poppins', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <!-- Navigation (injected by nav.js) -->
+    <div id="nav-placeholder"></div>
+
+    <!-- ─── HERO ─── -->
+    <main>
+        <section class="hero">
+            <div class="max-w-content relative z-10 py-24 pt-32">
+                <div class="max-w-3xl">
+                    <span class="section-tag"><i class="fa-solid fa-scale-balanced mr-1"></i> Educational
+                        Resource</span>
+                    <h1 class="section-title" style="font-size: clamp(2.2rem, 5vw, 3.5rem); margin-bottom: 1.25rem;">
+                        Philippine Criminal<br /><span style="color: var(--gold);">Justice System</span>
+                    </h1>
+                    <p class="section-lead" style="font-size: 1.0625rem; margin-bottom: 2rem;">
+                        An integrated system of institutions and procedures operating under the 1987 Philippine
+                        Constitution — dedicated to maintaining public order, enforcing criminal law, and ensuring
+                        justice for all persons.
+                    </p>
+                    <div style="display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center;">
+                        <a href="history.html" class="btn-gold"><i class="fa-solid fa-clock-rotate-left"></i> Explore
+                            History</a>
+                        <a href="structure.html" class="btn-outline"><i class="fa-solid fa-sitemap"></i> View
+                            Structure</a>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-bg-icon" aria-hidden="true"><i class="fa-solid fa-scale-balanced"></i></div>
+        </section>
+
+        <!-- ─── KEY CHARACTERISTICS ─── -->
+        <section class="section-pad section-panel" id="characteristics">
+            <div class="max-w-content">
+                <div style="text-align:center; margin-bottom: 3rem;" class="reveal">
+                    <span class="section-tag"><i class="fa-solid fa-star mr-1"></i> Key Characteristics</span>
+                    <h2 class="section-title" style="text-align:center;">What Defines the PCJS?</h2>
+                    <p class="section-lead" style="margin: 0 auto; text-align:center;">Four foundational characteristics
+                        shape the Philippine justice system's identity and legal culture.</p>
+                </div>
+                <div class="cards-grid" id="characteristics-grid"></div>
+            </div>
+        </section>
+
+        <!-- ─── PRIMARY GOALS ─── -->
+        <section class="section-pad section-navy" id="goals">
+            <div class="max-w-content">
+                <div style="text-align:center; margin-bottom: 3rem;" class="reveal">
+                    <span class="section-tag"><i class="fa-solid fa-bullseye mr-1"></i> Primary Goals</span>
+                    <h2 class="section-title" style="text-align:center;">Purposes of the Justice System</h2>
+                    <p class="section-lead" style="margin: 0 auto; text-align:center;">The PCJS pursues four
+                        interconnected goals to maintain a just and orderly society.</p>
+                </div>
+                <div class="cards-grid" id="goals-grid"></div>
+            </div>
+        </section>
+
+        <!-- ─── QUICK STATS STRIP ─── -->
+        <section class="section-pad section-panel">
+            <div class="max-w-content">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1.5rem; text-align: center;"
+                    class="reveal">
+                    <div>
+                        <p style="font-size: 2.25rem; font-weight: 800; color: var(--gold);">3</p>
+                        <p style="color: var(--slate); font-size: 0.875rem; margin-top: 0.25rem;">Pillars of Justice</p>
+                    </div>
+                    <div>
+                        <p style="font-size: 2.25rem; font-weight: 800; color: var(--gold);">11</p>
+                        <p style="color: var(--slate); font-size: 0.875rem; margin-top: 0.25rem;">Steps in a Criminal
+                            Trial</p>
+                    </div>
+                    <div>
+                        <p style="font-size: 2.25rem; font-weight: 800; color: var(--gold);">1987</p>
+                        <p style="color: var(--slate); font-size: 0.875rem; margin-top: 0.25rem;">Current Constitution
+                        </p>
+                    </div>
+                    <div>
+                        <p style="font-size: 2.25rem; font-weight: 800; color: var(--gold);">15</p>
+                        <p style="color: var(--slate); font-size: 0.875rem; margin-top: 0.25rem;">Supreme Court Justices
+                        </p>
+                    </div>
+                    <div>
+                        <p style="font-size: 2.25rem; font-weight: 800; color: var(--gold);">6</p>
+                        <p style="color: var(--slate); font-size: 0.875rem; margin-top: 0.25rem;">Court Levels</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ─── EXPLORE SECTIONS ─── -->
+        <section class="section-pad section-navy">
+            <div class="max-w-content">
+                <div style="text-align:center; margin-bottom: 3rem;" class="reveal">
+                    <span class="section-tag"><i class="fa-solid fa-compass mr-1"></i> Explore Topics</span>
+                    <h2 class="section-title" style="text-align:center;">Dive Deeper</h2>
+                </div>
+                <div class="cards-grid" id="explore-grid"></div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Scripts -->
+    <script src="js/nav.js"></script>
+    <script src="js/footer.js"></script>
+    <script src="js/modal.js"></script>
+    <script src="js/animations.js"></script>
+    <script>
+        const characteristics = [
+            {
+                icon: 'fa-book-open', title: 'Civil Law System',
+                tag: 'Legal Tradition',
+                teaser: 'Rooted in the Spanish Código Penal and codified statutes, not judge-made common law.',
+                body: `<p>The Philippines follows the <strong class="text-parchment">civil law tradition</strong> inherited from Spanish colonization (1565–1898). Unlike common law systems (USA, UK) where accumulated court decisions (precedents) form the primary law, civil law systems rely primarily on written, codified statutes enacted by the legislature.</p>
+          <p class="mt-3">The <strong class="text-parchment">Revised Penal Code (Act 3815, 1930)</strong> is directly descended from the Spanish Código Penal of 1870. This means criminal offenses are defined, elements are specified, and penalties are set by statute — not by judicial precedent alone.</p>
+          <div class="mt-3 highlight-box">Concrete example: In a common law system, judges could create new crimes through judicial decisions. In the Philippines, no act is a crime unless it is specifically defined as such by statute (nullum crimen, nulla poena sine lege — no crime, no penalty without law).</div>`
+            },
+            {
+                icon: 'fa-landmark', title: 'Democratic Framework',
+                tag: 'Constitutional Design',
+                teaser: 'Three co-equal branches (Executive, Legislative, Judicial) with checks and balances.',
+                body: `<p>The Philippines is a <strong class="text-parchment">democratic republic</strong> with sovereignty residing in the people. The 1987 Constitution establishes three co-equal branches of government, each with distinct roles in the justice system:</p>
+          <ul class="mt-3 space-y-2 list-disc list-inside">
+            <li><strong class="text-parchment">Legislative (Congress):</strong> Enacts penal laws defining crimes and penalties.</li>
+            <li><strong class="text-parchment">Executive (President + DOJ + DILG):</strong> Enforces laws through PNP, NBI, BFP, prosecutorial service.</li>
+            <li><strong class="text-parchment">Judicial (Supreme Court + lower courts):</strong> Adjudicates criminal cases, interprets laws, and has the power of judicial review to strike down unconstitutional acts.</li>
+          </ul>
+          <div class="mt-3 highlight-box">Checks and balances: Congress cannot convict anyone (no bill of attainder). The President cannot imprison anyone without a court order. Courts can void unconstitutional laws Congress passes.</div>`
+            },
+            {
+                icon: 'fa-globe', title: 'Mixed Jurisdiction',
+                tag: 'Legal Characteristics',
+                teaser: 'A hybrid of civil law and common law elements, producing a unique legal system.',
+                body: `<p>The Philippine legal system is a <strong class="text-parchment">mixed jurisdiction</strong> — a unique hybrid of civil law (Spanish inheritance) and common law elements (American colonial period, 1898–1946). This creates a distinctive legal culture found in few countries worldwide.</p>
+          <ul class="mt-3 space-y-1 list-disc list-inside">
+            <li><strong class="text-parchment">Civil law inheritance:</strong> Codified criminal statutes, civil code, property law.</li>
+            <li><strong class="text-parchment">Common law inheritance:</strong> Adversarial trial procedure, doctrine of stare decisis (persuasive precedent), procedural rules modeled on US Federal Rules.</li>
+            <li><strong class="text-parchment">Indigenous elements:</strong> Barangay justice (Katarungang Pambarangay) for minor disputes.</li>
+            <li><strong class="text-parchment">Islamic law:</strong> Shari'a courts apply Muslim Personal Law in the Bangsamoro region.</li>
+          </ul>`
+            },
+            {
+                icon: 'fa-people-group', title: 'Accessible Justice',
+                tag: 'Constitutional Goal',
+                teaser: 'The constitution mandates free legal aid for the indigent and simplified procedures for the poor.',
+                body: `<p>The 1987 Constitution (Art. III, Art. XIII) and multiple laws aim to make justice accessible to all regardless of economic status. Key mechanisms include:</p>
+          <ul class="mt-3 space-y-1 list-disc list-inside">
+            <li><strong class="text-parchment">Public Attorney's Office (PAO):</strong> Free legal representation for indigent accused persons at all court levels.</li>
+            <li><strong class="text-parchment">Katarungang Pambarangay (Barangay Justice):</strong> Mandatory conciliation/mediation at barangay level for minor disputes before court filing.</li>
+            <li><strong class="text-parchment">Recognizance Act (RA 10389):</strong> Allows release without bail for qualified indigent accused.</li>
+            <li><strong class="text-parchment">Small Claims Courts:</strong> Simplified procedure for resolving civil money claims without lawyers required.</li>
+            <li><strong class="text-parchment">Legal Aid Clinics:</strong> Law school clinics required to provide free legal aid under RA 9999.</li>
+          </ul><div class="mt-3 highlight-box">Despite these mechanisms, meaningful access gaps remain — particularly for rural communities, indigenous peoples, and those detained pre-trial who cannot afford bail.</div>`
+            },
+        ];
+
+        const goals = [
+            {
+                icon: 'fa-shield-halved', title: 'Public Safety',
+                tag: 'Primary Goal',
+                teaser: 'Protecting citizens from crime through prevention, detection, and deterrence.',
+                body: `<p><strong class="text-parchment">Public Safety</strong> is the most immediate goal of the criminal justice system. It encompasses proactive crime prevention (patrols, community policing, intelligence), reactive response (arrests, prosecution), and deterrence (visible enforcement, meaningful penalties).</p>
+          <p class="mt-3"><strong>Primary pillar responsible:</strong> Law Enforcement (PNP, NBI, BFP, Coast Guard) — supported by the Prosecution Service in swiftly processing cases.</p>
+          <ul class="mt-3 space-y-1 list-disc list-inside">
+            <li>Crime prevention programs at the barangay level (BADAC, Tanod).</li>
+            <li>Oplan Serbisyo sa Barangay — regular law enforcement outreach.</li>
+            <li>Community-focused policing reduces crime more sustainably than punitive approaches alone.</li>
+          </ul>`
+            },
+            {
+                icon: 'fa-scale-balanced', title: 'Justice',
+                tag: 'Primary Goal',
+                teaser: 'Ensuring fair adjudication — that the guilty are convicted and the innocent are protected.',
+                body: `<p><strong class="text-parchment">Justice</strong> in the criminal context means holding offenders accountable proportionately and protecting the innocent from wrongful conviction. This is the primary mandate of the Judicial pillar.</p>
+          <p class="mt-3"><strong>Primary pillar responsible:</strong> Judiciary (courts, judges, prosecutors) — also includes the DOJ's prosecution service conducting fair, evidence-based prosecutions.</p>
+          <ul class="mt-3 space-y-1 list-disc list-inside">
+            <li>Due process guarantees ensure fair trials.</li>
+            <li>Proof beyond reasonable doubt protects the innocent.</li>
+            <li>Impartial judges and independent courts are constitutional mandates.</li>
+            <li>Victim compensation and civil liability ensure the injured receive redress.</li>
+          </ul>`
+            },
+            {
+                icon: 'fa-house-lock', title: 'Community Protection',
+                tag: 'Primary Goal',
+                teaser: 'Protecting communities from dangerous individuals through incapacitation during sentence service.',
+                body: `<p><strong class="text-parchment">Community Protection</strong> refers to the incapacitative function of imprisonment — removing dangerous offenders from society during their sentence, reducing their opportunity to re-offend. It is the most immediate justification for custodial sentences.</p>
+          <p class="mt-3"><strong>Primary pillar responsible:</strong> Corrections (BuCor, BJMP, PPA) — all three share this responsibility, with BuCor/BJMP handling physical custody and PPA managing community supervision.</p>
+          <ul class="mt-3 space-y-1 list-disc list-inside">
+            <li>Imprisonment removes offenders from opportunities to commit further crimes.</li>
+            <li>Bail decisions balance community protection against the presumption of innocence.</li>
+            <li>Parole/probation supervision maintains community protection outside prison.</li>
+          </ul>`
+            },
+            {
+                icon: 'fa-person-walking-arrow-right', title: 'Rehabilitation',
+                tag: 'Primary Goal',
+                teaser: 'Reforming offenders to become productive members of society and reducing recidivism.',
+                body: `<p><strong class="text-parchment">Rehabilitation</strong> is the forward-looking goal of the criminal justice system — transforming the offender so that they will not re-offend upon release. The Philippine Constitution recognizes the importance of the "reformation and rehabilitation of offenders" (Art. VI, Sec. 5).</p>
+          <p class="mt-3"><strong>Primary pillar responsible:</strong> Corrections (BuCor, BJMP, PPA) — through education, vocational training, drug rehabilitation, psychological services, and reintegration programs.</p>
+          <ul class="mt-3 space-y-1 list-disc list-inside">
+            <li>Good Conduct Time Allowance (RA 10592) incentivizes program participation.</li>
+            <li>Prison-based education (ALS, TESDA) builds employable skills.</li>
+            <li>Post-release monitoring by PPA reduces recidivism risk.</li>
+            <li>Restorative justice approaches increasingly recognized in juvenile justice (RA 9344).</li>
+          </ul>`
+            },
+        ];
+
+        const exploreSections = [
+            { href: 'history.html', icon: 'fa-clock-rotate-left', title: 'Historical Development', desc: '6 eras from Pre-Colonial to Modern Democratic' },
+            { href: 'constitution.html', icon: 'fa-book-open', title: 'Constitutional Framework', desc: 'Provisions, Bill of Rights, and constitutional rights' },
+            { href: 'structure.html', icon: 'fa-sitemap', title: 'System Structure', desc: 'The Justice Triangle and the 3 pillars' },
+            { href: 'laws.html', icon: 'fa-file-contract', title: 'Key Criminal Laws', desc: 'Foundational laws and 8+ specialized penal statutes' },
+            { href: 'enforcement.html', icon: 'fa-shield-halved', title: 'Law Enforcement', desc: 'PNP, NBI, BFP, Coast Guard & core functions' },
+            { href: 'courts.html', icon: 'fa-gavel', title: 'Judicial System', desc: 'Court hierarchy and 11-step trial process' },
+            { href: 'corrections.html', icon: 'fa-lock', title: 'Corrections System', desc: 'Jails, prisons, probation, parole & rehabilitation' },
+            { href: 'challenges.html', icon: 'fa-triangle-exclamation', title: 'Challenges & Issues', desc: '8 systemic challenges with reform proposals' },
+        ];
+
+        function renderCard(item, container) {
+            const card = document.createElement('div');
+            card.className = 'card reveal';
+            card.setAttribute('tabindex', '0');
+            card.setAttribute('role', 'button');
+            card.setAttribute('aria-label', 'Learn more about ' + item.title);
+            card.innerHTML = `
+        <div style="display:flex; gap: 1rem; align-items: flex-start;">
+          <div class="icon-chip"><i class="fa-solid ${item.icon}"></i></div>
+          <div>
+            <p class="badge badge-gold" style="margin-bottom: 0.375rem;">${item.tag || ''}</p>
+            <h3 style="color: var(--parchment); font-weight: 600; font-size: 1rem; margin-bottom: 0.375rem;">${item.title}</h3>
+            <p style="font-size: 0.85rem; line-height: 1.5;">${item.teaser}</p>
+          </div>
+        </div>`;
+            card.addEventListener('click', () => Modal.open({ icon: item.icon, title: item.title, tag: item.tag || '', body: item.body }));
+            card.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); card.click(); } });
+            container.appendChild(card);
+        }
+
+        function renderExploreCard(item, container) {
+            const card = document.createElement('a');
+            card.className = 'card reveal';
+            card.href = item.href;
+            card.innerHTML = `
+        <div style="display:flex; gap: 1rem; align-items: flex-start;">
+          <div class="icon-chip"><i class="fa-solid ${item.icon}"></i></div>
+          <div>
+            <h3 style="color: var(--parchment); font-weight: 600; font-size: 1rem; margin-bottom: 0.25rem;">${item.title}</h3>
+            <p style="font-size: 0.85rem; line-height: 1.5;">${item.desc}</p>
+          </div>
+          <i class="fa-solid fa-arrow-right" style="color: var(--gold); margin-left: auto; margin-top: 0.25rem;"></i>
+        </div>`;
+            container.appendChild(card);
+        }
+
+        const cGrid = document.getElementById('characteristics-grid');
+        characteristics.forEach(c => renderCard(c, cGrid));
+
+        const gGrid = document.getElementById('goals-grid');
+        goals.forEach(g => renderCard(g, gGrid));
+
+        const eGrid = document.getElementById('explore-grid');
+        exploreSections.forEach(s => renderExploreCard(s, eGrid));
+
+        if (window.initReveal) initReveal();
+    </script>
+</body>
+
+</html>

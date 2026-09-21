@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Corrections System — Philippine Criminal Justice System</title>
+    <meta name="description"
+        content="Explore the Philippine corrections system including jails, prisons, probation, parole, and rehabilitation programs." />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>tailwind.config = { theme: { extend: { colors: { 'navy-deep': '#0F1B33', 'navy-panel': '#1a2744', 'parchment': '#F7F6F2', 'gold': '#C9A227', 'slate': '#8b9cbf' }, fontFamily: { sans: ['Poppins', 'sans-serif'] } } } }</script>
+</head>
+
+<body>
+    <div id="nav-placeholder"></div>
+    <main class="page-top">
+        <section
+            style="background:linear-gradient(135deg,var(--navy-deep) 0%,#111e38 100%);padding:4rem 0 3rem;border-bottom:1px solid rgba(255,255,255,0.07);">
+            <div class="max-w-content">
+                <a href="index.html"
+                    style="color:var(--slate);font-size:0.8125rem;text-decoration:none;display:inline-flex;align-items:center;gap:0.375rem;margin-bottom:1.25rem;"
+                    onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--slate)'"><i
+                        class="fa-solid fa-arrow-left"></i> Home</a>
+                <span class="section-tag"><i class="fa-solid fa-lock mr-1"></i> Corrections System</span>
+                <h1 class="section-title">The Corrections Pillar</h1>
+                <p class="section-lead">From custodial institutions to community-based rehabilitation — the corrections
+                    pillar's mandate has evolved from punitive confinement to transformative rehabilitation.</p>
+            </div>
+        </section>
+
+        <!-- Institutions -->
+        <section class="section-pad section-panel">
+            <div class="max-w-content">
+                <div class="reveal" style="margin-bottom:2rem;"><span class="section-tag">Institutions</span>
+                    <h2 class="section-title">Custodial Institutions</h2>
+                </div>
+                <div class="cards-grid-2" id="institutions-grid"></div>
+            </div>
+        </section>
+
+        <!-- Community Corrections -->
+        <section class="section-pad section-navy">
+            <div class="max-w-content">
+                <div class="reveal" style="margin-bottom:2rem;"><span class="section-tag">Community</span>
+                    <h2 class="section-title">Community Corrections</h2>
+                    <p class="section-lead">Alternatives to imprisonment that allow offenders to serve their sentence
+                        under supervision in the community.</p>
+                </div>
+                <div class="cards-grid" id="community-grid"></div>
+            </div>
+        </section>
+
+        <!-- Rehabilitation -->
+        <section class="section-pad section-panel">
+            <div class="max-w-content">
+                <div class="reveal" style="margin-bottom:2rem;"><span class="section-tag">Rehabilitation</span>
+                    <h2 class="section-title">Rehabilitation Programs</h2>
+                    <p class="section-lead">Multi-dimensional programs addressing education, skills, mental health, drug
+                        dependency, and spiritual wellness.</p>
+                </div>
+                <div class="cards-grid" id="rehab-grid"></div>
+            </div>
+        </section>
+    </main>
+    <div id="footer-placeholder"></div>
+    <script src="js/nav.js"></script>
+    <script src="js/footer.js"></script>
+    <script src="js/modal.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="data/corrections.js"></script>
+    <script>
+        function renderCard(item, container) {
+            const card = document.createElement('div');
+            card.className = 'card reveal'; card.setAttribute('tabindex', '0'); card.setAttribute('role', 'button');
+            card.innerHTML = `<div style="display:flex;gap:1rem;align-items:flex-start;"><div class="icon-chip"><i class="fa-solid ${item.icon}"></i></div><div><p class="badge badge-gold" style="margin-bottom:0.375rem;">${item.tag}</p><h3 style="color:var(--parchment);font-weight:600;font-size:1rem;margin-bottom:0.375rem;">${item.title}</h3><p style="font-size:0.85rem;line-height:1.5;">${item.teaser}</p></div></div>`;
+            card.addEventListener('click', () => Modal.open({ icon: item.icon, title: item.title, tag: item.tag, body: item.body }));
+            card.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); card.click(); } });
+            container.appendChild(card);
+        }
+        const ig = document.getElementById('institutions-grid');
+        const cg = document.getElementById('community-grid');
+        const rg = document.getElementById('rehab-grid');
+        correctionsData.institutions.forEach(i => renderCard(i, ig));
+        correctionsData.community.forEach(c => renderCard(c, cg));
+        correctionsData.rehabilitation.forEach(r => renderCard(r, rg));
+        if (window.initReveal) initReveal();
+    </script>
+</body>
+
+</html>
