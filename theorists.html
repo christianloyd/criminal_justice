@@ -75,14 +75,14 @@
                 card.className = 'theorist-card reveal revealed';
                 card.setAttribute('role', 'button'); card.setAttribute('tabindex', '0');
 
-                card.innerHTML = \`
-          <div class="theorist-avatar \${config.chip}" style="border-radius:1rem;width:3rem;height:3rem;margin:0 auto 1rem;font-size:1.25rem;">
-            <i class="fa-solid \${item.icon}"></i>
+                card.innerHTML = `
+          <div class="theorist-avatar ${config.chip}" style="border-radius:1rem;width:3rem;height:3rem;margin:0 auto 1rem;font-size:1.25rem;">
+            <i class="fa-solid ${item.icon}"></i>
           </div>
-          <p class="badge \${config.badge} mb-2">\${item.badge}</p>
-          <h3 class="text-parchment font-bold text-lg mb-1">\${item.title}</h3>
-          <p class="text-slate text-sm italic">\${item.teaser}</p>
-        \`;
+          <p class="badge ${config.badge} mb-2">${item.badge}</p>
+          <h3 class="text-parchment font-bold text-lg mb-1">${item.title}</h3>
+          <p class="text-slate text-sm italic">${item.teaser}</p>
+        `;
         
         card.addEventListener('click', () => Modal.open({ icon: item.icon, iconClass: 'icon-chip '+config.chip, title: item.title, tag: item.badge, body: item.body }));
         card.addEventListener('keydown', e => { if (e.key==='Enter' || e.key===' ') { e.preventDefault(); card.click(); }});

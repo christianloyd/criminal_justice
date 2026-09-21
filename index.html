@@ -132,7 +132,7 @@
             const container = document.getElementById(containerId);
             data.forEach(item => {
                 const card = document.createElement('div');
-                card.className = \`card reveal \${item.family ? 'family-'+item.family : ''}\`;
+                card.className = `card reveal ${item.family ? 'family-'+item.family : ''}`;
         card.setAttribute('role', 'button'); card.setAttribute('tabindex', '0');
         
         let chipClass = 'icon-chip';
@@ -145,14 +145,14 @@
         if (item.family === 'biological') badgeClass = 'badge badge-bio';
         if (item.family === 'socio') badgeClass = 'badge badge-socio';
 
-        card.innerHTML = \`<div style="display:flex;gap:1.25rem;align-items:flex-start;">
-          <div class="\${chipClass}"><i class="fa-solid \${item.icon}"></i></div>
+        card.innerHTML = `<div style="display:flex;gap:1.25rem;align-items:flex-start;">
+          <div class="${chipClass}"><i class="fa-solid ${item.icon}"></i></div>
           <div>
-            <p class="\${badgeClass}" style="margin-bottom:0.375rem;">\${item.badge}</p>
-            <h3 style="color:var(--parchment);font-weight:600;font-size:1.125rem;margin-bottom:0.375rem;">\${item.title}</h3>
-            <p style="font-size:0.875rem;line-height:1.6;">\${item.teaser}</p>
+            <p class="${badgeClass}" style="margin-bottom:0.375rem;">${item.badge}</p>
+            <h3 style="color:var(--parchment);font-weight:600;font-size:1.125rem;margin-bottom:0.375rem;">${item.title}</h3>
+            <p style="font-size:0.875rem;line-height:1.6;">${item.teaser}</p>
           </div>
-        </div>\`;
+        </div>`;
 
         card.addEventListener('click', () => Modal.open({ icon: item.icon, iconClass: chipClass, title: item.title, tag: item.badge, body: item.body }));
         card.addEventListener('keydown', e => { if (e.key==='Enter' || e.key===' ') { e.preventDefault(); card.click(); }});
