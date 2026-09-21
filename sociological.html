@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sociological Theories — Crime Causation</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>tailwind.config = { theme: { extend: { colors: { 'navy-deep': '#101A33', 'navy-panel': '#1a2744', 'parchment': '#F7F6F1', 'gold': '#C9A227', 'slate': '#8b9cbf' }, fontFamily: { sans: ['Poppins', 'sans-serif'] } } } }</script>
+</head>
+
+<body>
+    <div id="nav-placeholder"></div>
+    <main class="page-top">
+        <!-- Header -->
+        <section
+            style="background:linear-gradient(135deg,var(--navy-deep) 0%,#241503 100%);padding:4rem 0 3rem;border-bottom:1px solid rgba(176,101,27,0.2);">
+            <div class="max-w-content">
+                <span class="section-tag chip-socio"><i class="fa-solid fa-people-group mr-1"></i> Sociological
+                    School</span>
+                <h1 class="section-title">Sociological Theories</h1>
+                <p class="section-lead">The dominant modern paradigm in criminology. It argues that crime is not born in
+                    the individual, but created by social structures, peer processes, and structural conflict.</p>
+            </div>
+        </section>
+
+        <!-- Tab Navigation -->
+        <section class="section-panel"
+            style="padding:1.5rem 0; border-bottom:1px solid rgba(255,255,255,0.05); position:sticky; top:4rem; z-index:40;">
+            <div class="max-w-content flex gap-3 overflow-x-auto pb-2"
+                style="scrollbar-width:none;-ms-overflow-style:none;" role="tablist">
+                <button class="tab-btn active" role="tab" aria-selected="true" data-target="structure-tab">Social
+                    Structure Theories</button>
+                <button class="tab-btn" role="tab" aria-selected="false" data-target="process-tab">Social Process
+                    Theories</button>
+                <button class="tab-btn" role="tab" aria-selected="false" data-target="conflict-tab">Social Conflict
+                    Theories</button>
+            </div>
+        </section>
+
+        <!-- Content Panels -->
+        <section class="section-pad section-navy" style="min-height:60vh;">
+            <div class="max-w-content">
+
+                <!-- Structure Tab -->
+                <div id="structure-tab" class="tab-panel active" role="tabpanel">
+                    <div class="mb-8 reveal">
+                        <h2 class="text-2xl font-bold text-parchment mb-2">Social Structure Theories</h2>
+                        <p class="text-slate">Crime is caused by the way society is organized. Poverty, inequality,
+                            blocked opportunities, and deteriorating neighborhoods generate crime regardless of the
+                            individuals living there.</p>
+                    </div>
+                    <div class="cards-grid" id="grid-structure"></div>
+                </div>
+
+                <!-- Process Tab -->
+                <div id="process-tab" class="tab-panel" role="tabpanel">
+                    <div class="mb-8 reveal">
+                        <h2 class="text-2xl font-bold text-parchment mb-2">Social Process Theories</h2>
+                        <p class="text-slate">Crime is learned through interactions with others. Anyone, regardless of
+                            class, can become a criminal if exposed to criminal definitions, or if their social bonds to
+                            society are broken.</p>
+                    </div>
+                    <div class="cards-grid" id="grid-process"></div>
+                </div>
+
+                <!-- Conflict Tab -->
+                <div id="conflict-tab" class="tab-panel" role="tabpanel">
+                    <div class="mb-8 reveal">
+                        <h2 class="text-2xl font-bold text-parchment mb-2">Social Conflict Theories</h2>
+                        <p class="text-slate">Society is in constant conflict over resources and power. "Crime" is
+                            simply a label the powerful use to criminalize the behavior of the powerless and protect
+                            their own interests.</p>
+                    </div>
+                    <div class="cards-grid" id="grid-conflict"></div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+    <div id="footer-placeholder"></div>
+
+    <script src="js/nav.js"></script>
+    <script src="js/footer.js"></script>
+    <script src="js/modal.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="data/sociological.js"></script>
+    <script>
+        // Tab switching logic
+        const tabBtns = document.querySelectorAll('.tab-btn');
+        const tabPanels = document.querySelectorAll('.tab-panel');
+
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const targetId = btn.getAttribute('data-target');
+                // Update buttons
+                tabBtns.forEach(b => { b.classList.remove('active'); b.setAttribute('aria-selected', 'false'); });
+                btn.classList.add('active'); btn.setAttribute('aria-selected', 'true');
+                // Update panels
+                tabPanels.forEach(p => { p.classList.remove('active'); });
+                document.getElementById(targetId).classList.add('active');
+                // Re-trigger reveal animations for new tab content
+                setTimeout(() => {
+                    document.getElementById(targetId).querySelectorAll('.reveal').forEach(el => el.classList.add('revealed'));
+                }, 50);
+            });
+        });
+
+        // Sub-render function
+        function populateGrid(dataArray, containerId) {
+            const grid = document.getElementById(containerId);
+            dataArray.forEach(item => {
+                const card = document.createElement('div');
+                card.className = 'card family-socio reveal';
+                card.setAttribute('role', 'button'); card.setAttribute('tabindex', '0');
+                card.innerHTML = \`<div style="display:flex;gap:1.25rem;align-items:flex-start;">
+          <div class="icon-chip icon-chip-socio"><i class="fa-solid \${item.icon}"></i></div>
+          <div>
+            <p class="badge badge-socio" style="margin-bottom:0.375rem;">\${item.badge}</p>
+            <h3 style="color:var(--parchment);font-weight:600;font-size:1.125rem;margin-bottom:0.375rem;">\${item.title}</h3>
+            <p style="font-size:0.875rem;line-height:1.6;">\${item.teaser}</p>
+          </div>
+        </div>\`;
+        card.addEventListener('click', () => Modal.open({ icon: item.icon, iconClass: 'icon-chip icon-chip-socio', title: item.title, tag: item.badge, body: item.body }));
+        card.addEventListener('keydown', e => { if (e.key==='Enter' || e.key===' ') { e.preventDefault(); card.click(); }});
+        grid.appendChild(card);
+      });
+    }
+
+    populateGrid(sociologicalData.structure, 'grid-structure');
+    populateGrid(sociologicalData.process, 'grid-process');
+    populateGrid(sociologicalData.conflict, 'grid-conflict');
+    
+    if(window.initReveal) initReveal();
+    </script>
+</body>
+
+</html>

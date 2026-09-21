@@ -1,102 +1,54 @@
-# Philippine Criminal Justice System 🏛️
+# Theories of Crime Causation (Crim 2 Capstone)
 
-An interactive, multi-page educational website covering the Philippine Criminal Justice System (PCJS) — built with HTML5, Tailwind CSS, Font Awesome, and Vanilla JavaScript.
+An interactive, educational web application exploring the major theories of crime causation across criminology. This project serves as a comprehensive resource for understanding the foundational schools of thought regarding criminal behavior.
 
-## 🌐 Live Pages
+## Overview
 
-| Page | Description |
-|---|---|
-| `index.html` | Homepage — overview, goals, and site navigation |
-| `history.html` | Historical development across 6 eras |
-| `constitution.html` | Constitutional provisions & Bill of Rights |
-| `structure.html` | The Justice Triangle (3 pillars) |
-| `laws.html` | Key criminal laws with search & filter |
-| `enforcement.html` | Law enforcement agencies & functions |
-| `courts.html` | Court hierarchy & 11-step trial process |
-| `corrections.html` | Jails, prisons, probation & rehabilitation |
-| `challenges.html` | Systemic challenges & reform proposals |
-| `references.html` | Legal & academic source references |
-| `contact.html` | About the project & contact form |
+The site is built with a simple, scalable Vanilla JavaScript architecture that injects data dynamically into reusable modal components. It features a curated 60/30/10 dark-academia design system using Tailwind CSS via CDN, avoiding the need for a build step while maintaining high-quality aesthetics. The theoretical schools are color-coded (Gold for Classical, Teal for Biological, Indigo for Psychological, Orange for Sociological, and Maroon for Contemporary) to help users visually distinguish between paradigms.
 
-## ✨ Features
+## Project Architecture
 
-- **Modal-driven content** — every card opens a detailed accessible modal
-- **11-step trial stepper** — interactive horizontal timeline (desktop) / modal list (mobile)
-- **Laws filter** — search + 7-category filter across all criminal laws
-- **Scroll-reveal animations** — staggered IntersectionObserver animations
-- **Shared navigation** — single-source-of-truth nav injected across all pages
-- **Responsive design** — mobile hamburger menu, fluid grids
-- **Accessible** — focus trapping, keyboard navigation, ARIA labels, `Esc` to close modals
+### Core Pages
+*   **`index.html`**: Homepage introducing the major schools (Classical, Biological, Conflict) and explaining *why* theory matters for public policy and sentencing.
+*   **`classical.html`**: Explores the Classical and Neo-classical schools (Beccaria, Bentham) and Deterrence Theory.
+*   **`biological.html`**: Explores Positivist thought, from Lombroso's biological determinism to modern neurochemical studies.
+*   **`psychological.html`**: Covers psychoanalytic, behavioral, cognitive, personality, and attachment theories.
+*   **`sociological.html`**: The most extensive page, featuring a custom JavaScript tab-switcher to organize theories into Social Structure, Social Process, and Social Conflict paradigms.
+*   **`contemporary.html`**: Explores modern integrated theories, rational choice, routine activities, and life-course/developmental theories.
+*   **`theorists.html`**: A dedicated gallery of the 14 key theorists discussed across the site, complete with dynamic filtering by theoretical family.
+*   **`references.html`**: A clean, structured list of the foundational texts that inform the site content.
+*   **`contact.html`**: Provides author information (AJ Acapulco) and a demo contact form.
 
-## 🎨 Design System
+### JavaScript Modals & Interactions
 
-| Role | Color | Usage |
-|---|---|---|
-| Base (60%) | `#0F1B33` Deep Judicial Navy | Background |
-| Secondary (30%) | `#F7F6F2` Parchment | Text, headings |
-| Accent (10%) | `#C9A227` Gavel Gold | Icons, CTAs, highlights |
-| Alert | `#8B1E23` Deep Red | Challenges section |
+Instead of creating dozens of separate HTML pages for each individual theory, the site heavily utilizes a **shared interactive modal system**. 
+Users can click on any theory card to open a modal that displays its deep-dive content (Core assumptions, key concepts, real-world application, and criticisms).
 
-Font: **Poppins** (Google Fonts)
+- **`modal.js`**: Handles the accessibility-compliant modal overlay, including focus-trapping and keyboard navigation (Escape to close).
+- **`animations.js`**: Reusable IntersectionObserver logic that controls the smooth `.reveal` scroll animations on all pages. 
+- **`nav.js` / `footer.js`**: Injects the shared navigation and footer partials into every page dynamically, ensuring a single source of truth for layout structure.
 
-## 📁 Project Structure
+### Data Layer
 
-```
-/
-├── index.html … contact.html   # 11 HTML pages
-├── styles.css                  # Shared design system
-├── README.md
-├── partials/
-│   ├── nav.html                # Shared navigation bar
-│   └── footer.html             # Shared footer
-├── js/
-│   ├── nav.js                  # Nav injection, sticky, hamburger
-│   ├── footer.js               # Footer injection
-│   ├── modal.js                # Reusable modal system
-│   ├── animations.js           # Scroll-reveal (IntersectionObserver)
-│   ├── laws.js                 # Filter + search logic
-│   └── courts.js               # Trial stepper logic
-└── data/
-    ├── history.js              # 6 historical eras
-    ├── constitution.js         # Provisions + Bill of Rights
-    ├── laws.js                 # Foundational + specialized laws
-    ├── agencies.js             # Law enforcement agencies
-    ├── courts.js               # Court levels + trial steps + personnel
-    ├── corrections.js          # Institutions + community + rehab
-    └── challenges.js           # 8 systemic challenges
-```
+The content for the modals is stored in modular JavaScript files, keeping the HTML clean and separating the data layer from the presentation layer.
+- `data/classical.js`
+- `data/biological.js`
+- `data/psychological.js`
+- `data/sociological.js` (Nested arrays for tab switching)
+- `data/contemporary.js`
+- `data/theorists.js`
 
-## 🚀 Getting Started
+## Technologies Used
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/christianloyd/criminal_justice.git
-   cd criminal_justice
-   ```
+*   **HTML5 & CSS3**
+*   **Vanilla JavaScript (ES6)**
+*   **Tailwind CSS** (via CDN for rapid prototyping and utility classes)
+*   **FontAwesome** (for consistent, theme-appropriate iconography)
 
-2. Open with a local server (recommended for nav/footer partial loading):
-   - **VS Code:** Install the *Live Server* extension → right-click `index.html` → *Open with Live Server*
-   - **Python:** `python -m http.server 8080` then visit `http://localhost:8080`
-   - **Node:** `npx serve .`
+## Usage
 
-3. Or simply double-click `index.html` to open in your browser.
+Simply clone or download the repository, ensure all files are in the same directory, and open `index.html` in any modern web browser. No build steps (npm, webpack, etc.) are required.
 
-> **Note:** The navigation and footer are loaded via `fetch()` from `/partials/`. For the best experience, use a local HTTP server. Opening directly from `file://` may block fetch requests in some browsers (Chrome). You can also start Chrome with `--allow-file-access-from-files`.
+## Author
 
-## ⚖️ Disclaimer
-
-This website is for **educational purposes only**. It does not constitute legal advice. All laws and procedures described are general summaries. Consult a licensed Philippine attorney for specific legal guidance.
-
-## 📚 Key Legal Sources
-
-- 1987 Philippine Constitution
-- Revised Penal Code (Act 3815, 1930)
-- Republic Act 6975 (PNP Law)
-- Republic Act 9165 (Comprehensive Dangerous Drugs Act)
-- Republic Act 9344 (Juvenile Justice & Welfare Act)
-- Republic Act 10175 (Cybercrime Prevention Act)
-- Rules of Court (AM 19-08-15-SC)
-
----
-
-*Built as an educational resource on the Philippine Criminal Justice System.*
+Developed by **AJ Acapulco** (BS Criminology, YBVC) as a final course requirement.

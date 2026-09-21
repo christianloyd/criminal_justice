@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Key Theorists — Crime Causation</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>tailwind.config = { theme: { extend: { colors: { 'navy-deep': '#101A33', 'navy-panel': '#1a2744', 'parchment': '#F7F6F1', 'gold': '#C9A227', 'slate': '#8b9cbf' }, fontFamily: { sans: ['Poppins', 'sans-serif'] } } } }</script>
+</head>
+
+<body>
+    <div id="nav-placeholder"></div>
+    <main class="page-top">
+        <section class="section-navy" style="padding:4rem 0 3rem;border-bottom:1px solid rgba(255,255,255,0.05);">
+            <div class="max-w-content text-center">
+                <h1 class="section-title">Key Theorists Gallery</h1>
+                <p class="section-lead mx-auto">Explore the foundational thinkers who shaped the study of crime across
+                    all major schools of thought.</p>
+
+                <!-- Filters -->
+                <div class="flex flex-wrap justify-center gap-3 mt-8" id="theorist-filters" role="group"
+                    aria-label="Filter theorists by family">
+                    <button class="badge badge-slate cursor-pointer scale-105 hover:bg-white/10"
+                        data-filter="all">All</button>
+                    <button class="badge badge-gold cursor-pointer hover:bg-[rgba(201,162,39,0.2)]"
+                        data-filter="classical">Classical</button>
+                    <button class="badge badge-bio cursor-pointer hover:bg-[rgba(46,125,107,0.2)]"
+                        data-filter="biological">Biological</button>
+                    <button class="badge badge-psych cursor-pointer hover:bg-[rgba(76,74,168,0.2)]"
+                        data-filter="psychological">Psychological</button>
+                    <button class="badge badge-socio cursor-pointer hover:bg-[rgba(176,101,27,0.2)]"
+                        data-filter="sociological">Sociological</button>
+                    <button class="badge badge-cont cursor-pointer hover:bg-[rgba(139,30,63,0.2)]"
+                        data-filter="contemporary">Contemporary</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-pad section-panel min-h-[60vh]">
+            <div class="max-w-content">
+                <div class="cards-grid" id="data-grid"></div>
+            </div>
+        </section>
+    </main>
+    <div id="footer-placeholder"></div>
+
+    <script src="js/nav.js"></script>
+    <script src="js/footer.js"></script>
+    <script src="js/modal.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="data/theorists.js"></script>
+    <script>
+        const grid = document.getElementById('data-grid');
+
+        // Mapping config for rendering styles depending on family
+        const familyConfig = {
+            'classical': { chip: 'icon-chip-classical', badge: 'badge-gold' },
+            'biological': { chip: 'icon-chip-bio', badge: 'badge-bio' },
+            'psychological': { chip: 'icon-chip-psych', badge: 'badge-psych' },
+            'sociological': { chip: 'icon-chip-socio', badge: 'badge-socio' },
+            'contemporary': { chip: 'icon-chip-cont', badge: 'badge-cont' }
+        };
+
+        function renderTheorists(filterVal) {
+            grid.innerHTML = '';
+            const filtered = filterVal === 'all' ? theoristsData : theoristsData.filter(d => d.family === filterVal);
+
+            filtered.forEach(item => {
+                const config = familyConfig[item.family] || { chip: '', badge: 'badge-slate' };
+                const card = document.createElement('div');
+                // Custom theorist card layout
+                card.className = 'theorist-card reveal revealed';
+                card.setAttribute('role', 'button'); card.setAttribute('tabindex', '0');
+
+                card.innerHTML = \`
+          <div class="theorist-avatar \${config.chip}" style="border-radius:1rem;width:3rem;height:3rem;margin:0 auto 1rem;font-size:1.25rem;">
+            <i class="fa-solid \${item.icon}"></i>
+          </div>
+          <p class="badge \${config.badge} mb-2">\${item.badge}</p>
+          <h3 class="text-parchment font-bold text-lg mb-1">\${item.title}</h3>
+          <p class="text-slate text-sm italic">\${item.teaser}</p>
+        \`;
+        
+        card.addEventListener('click', () => Modal.open({ icon: item.icon, iconClass: 'icon-chip '+config.chip, title: item.title, tag: item.badge, body: item.body }));
+        card.addEventListener('keydown', e => { if (e.key==='Enter' || e.key===' ') { e.preventDefault(); card.click(); }});
+        grid.appendChild(card);
+      });
+    }
+
+    renderTheorists('all');
+
+    // Filter Buttons Logic
+    document.querySelectorAll('#theorist-filters button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        // Reset scale
+        document.querySelectorAll('#theorist-filters button').forEach(b => b.classList.remove('scale-105'));
+        btn.classList.add('scale-105');
+        renderTheorists(btn.getAttribute('data-filter'));
+      });
+    });
+    
+    if(window.initReveal) initReveal();
+    </script>
+</body>
+
+</html>

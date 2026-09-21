@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Psychological Theories — Crime Causation</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>tailwind.config = { theme: { extend: { colors: { 'navy-deep': '#101A33', 'navy-panel': '#1a2744', 'parchment': '#F7F6F1', 'gold': '#C9A227', 'slate': '#8b9cbf' }, fontFamily: { sans: ['Poppins', 'sans-serif'] } } } }</script>
+</head>
+
+<body>
+    <div id="nav-placeholder"></div>
+    <main class="page-top">
+        <section
+            style="background:linear-gradient(135deg,var(--navy-deep) 0%,#131230 100%);padding:4rem 0 3rem;border-bottom:1px solid rgba(76,74,168,0.2);">
+            <div class="max-w-content">
+                <span class="section-tag chip-psych"><i class="fa-solid fa-brain mr-1"></i> Psychological School</span>
+                <h1 class="section-title">Psychological Theories</h1>
+                <p class="section-lead">Examining how cognitive processes, personality traits, early childhood
+                    attachment, and learning mechanisms influence criminal behavior.</p>
+            </div>
+        </section>
+
+        <section class="section-pad section-panel">
+            <div class="max-w-content">
+                <div class="cards-grid" id="data-grid"></div>
+            </div>
+        </section>
+    </main>
+    <div id="footer-placeholder"></div>
+
+    <script src="js/nav.js"></script>
+    <script src="js/footer.js"></script>
+    <script src="js/modal.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="data/psychological.js"></script>
+    <script>
+        const grid = document.getElementById('data-grid');
+        psychologicalData.forEach(item => {
+            const card = document.createElement('div');
+            card.className = 'card family-psych reveal';
+            card.setAttribute('role', 'button'); card.setAttribute('tabindex', '0');
+            card.innerHTML = \`<div style="display:flex;gap:1.25rem;align-items:flex-start;">
+        <div class="icon-chip icon-chip-psych"><i class="fa-solid \${item.icon}"></i></div>
+        <div>
+          <p class="badge badge-psych" style="margin-bottom:0.375rem;">\${item.badge}</p>
+          <h3 style="color:var(--parchment);font-weight:600;font-size:1.125rem;margin-bottom:0.375rem;">\${item.title}</h3>
+          <p style="font-size:0.875rem;line-height:1.6;">\${item.teaser}</p>
+        </div>
+      </div>\`;
+      card.addEventListener('click', () => Modal.open({ icon: item.icon, iconClass: 'icon-chip icon-chip-psych', title: item.title, tag: item.badge, body: item.body }));
+      card.addEventListener('keydown', e => { if (e.key==='Enter' || e.key===' ') { e.preventDefault(); card.click(); }});
+      grid.appendChild(card);
+    });
+    if(window.initReveal) initReveal();
+    </script>
+</body>
+
+</html>
